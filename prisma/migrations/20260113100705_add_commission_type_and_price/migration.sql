@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Commission" ADD COLUMN     "price" INTEGER NOT NULL DEFAULT 1500,
+ADD COLUMN     "type" TEXT NOT NULL DEFAULT 'sketch';
