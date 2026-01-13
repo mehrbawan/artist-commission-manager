@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import Navbar from "@/components/layout/Navbar";
 
+export const dynamic = 'force-dynamic';
+
 export default async function DashboardPage() {
   const demoUserEmail = "demo@demo.com";
   const user = await prisma.user.findUnique({
