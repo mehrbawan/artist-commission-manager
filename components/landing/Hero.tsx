@@ -1,133 +1,55 @@
 import Link from "next/link";
 
-function Search() {
-  return (
-    <div className="bg-[#eee] content-stretch flex gap-[12px] h-[71px] items-center px-[25px] py-[11px] relative rounded-[50px] shrink-0 w-[801px]" data-name="search">
-      <div className="h-[45px] relative shrink-0 w-[40px]" data-name="Search">
-      </div>
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[#939393] text-[24px] text-center text-nowrap">
-        <p className="leading-[0.801]">Search by artist or service</p>
-      </div>
-    </div>
-  );
-}
-
-function Login1() {
-  return (
-    <div className="bg-[#2b2b2b] content-stretch flex items-center px-[30px] py-[15px] relative rounded-[27px] shrink-0" data-name="login">
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[#eee] text-[24px] text-center text-nowrap">
-        <p className="leading-[0.801]">Illustrations</p>
-      </div>
-    </div>
-  );
-}
-
-function Login2() {
-  return (
-    <div className="bg-[#2b2b2b] content-stretch flex items-center px-[30px] py-[15px] relative rounded-[27px] shrink-0" data-name="login">
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[#eee] text-[24px] text-center text-nowrap">
-        <p className="leading-[0.801]">Icons</p>
-      </div>
-    </div>
-  );
-}
-
-function Login3() {
-  return (
-    <div className="bg-[#2b2b2b] content-stretch flex items-center px-[30px] py-[15px] relative rounded-[27px] shrink-0" data-name="login">
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[#eee] text-[24px] text-center text-nowrap">
-        <p className="leading-[0.801]">Branding Visuals</p>
-      </div>
-    </div>
-  );
-}
-
-function Login4() {
-  return (
-    <div className="bg-[#2b2b2b] content-stretch flex items-center px-[30px] py-[15px] relative rounded-[27px] shrink-0" data-name="login">
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[#eee] text-[24px] text-center text-nowrap">
-        <p className="leading-[0.801]">Stream Assets</p>
-      </div>
-    </div>
-  );
-}
-
-function Login5() {
-  return (
-    <div className="bg-[#2b2b2b] content-stretch flex items-center px-[30px] py-[15px] relative rounded-[27px] shrink-0" data-name="login">
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[#eee] text-[24px] text-center text-nowrap">
-        <p className="leading-[0.801]">3D Models</p>
-      </div>
-    </div>
-  );
-}
-
-function Frame8() {
-  return (
-    <div className="content-stretch flex gap-[23px] items-center relative shrink-0">
-      <Login1 />
-      <Login2 />
-      <Login3 />
-      <Login4 />
-      <Login5 />
-    </div>
-  );
-}
-
-function Frame7() {
-  return (
-    <div className="bg-[rgba(43,43,43,0.25)] content-stretch flex flex-col gap-[40px] items-start p-[40px] relative rounded-[30px] shrink-0">
-      <div aria-hidden="true" className="absolute border border-[#d3d3d3] border-solid inset-0 pointer-events-none rounded-[30px]" />
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[32px] text-black w-[749px]">
-        <p className="leading-[0.801]">Your all-in-one, artist-centric platform for buying and selling commissions</p>
-      </div>
-      <Search />
-      <Frame8 />
-    </div>
-  );
-}
-
-function Frame6() {
-  return (
-    <div className="content-stretch flex flex-col gap-[59px] items-start relative shrink-0 w-full">
-      <div className="flex flex-col font-['Outfit:Bold',sans-serif] font-bold h-[221px] justify-center leading-[0] relative shrink-0 text-[128px] text-black w-[852px]">
-        <p className="leading-[0.801]">By art lovers, for art lovers.</p>
-      </div>
-      <Frame7 />
-    </div>
-  );
-}
+const categories = [
+  'Illustrations',
+  'Icons',
+  'Branding Visuals',
+  'Stream Assets',
+  '3D Models'
+];
 
 export default function Hero() {
   return (
-    <div className="bg-gradient-to-r content-stretch flex flex-col from-[#8fbfff] items-start justify-center p-[40px] relative rounded-[40px] shrink-0 to-[#ff9ea9] via-[#e78eff] via-[46.635%] w-[1323px]" data-name="hero">
-      <Frame6 />
-    </div>
-  );
-}
+    <section className="bg-gradient-to-r from-[#8fbfff] via-[#e78eff] via-[46.635%] to-[#ff9ea9] rounded-[40px] p-10 max-w-[90vw] w-full">
+      <div className="flex flex-col gap-[59px]">
+        {/* Hero Title */}
+        <h1 className="text-[128px] font-bold leading-[0.801] text-black max-w-[852px]">
+          By art lovers, for art lovers.
+        </h1>
 
+        {/* Content Box */}
+        <div className="bg-[rgba(43,43,43,0.25)] backdrop-blur-sm rounded-[30px] p-5 border border-[#d3d3d3] flex flex-col gap-5">
+          {/* Subtitle */}
+          <p className="text-[32px] font-semibold leading-tight text-white max-w-[749px]">
+            Your all-in-one, artist-centric platform for buying and selling commissions
+          </p>
 
-function test() {
-  return (
-    <section className="max-w-7xl mx-auto px-6 py-24 text-center">
-      <h1 className="text-5xl font-bold leading-tight max-w-3xl mx-auto">
-        Commissions, simplified for artists and clients
-      </h1>
-      <p className="mt-6 text-lg text-gray-600 max-w-xl mx-auto">
-        Open commissions, manage requests, accept payments, and deliver art —
-        all in one clean platform.
-      </p>
-      <div className="mt-10 flex justify-center gap-4">
-        <Link href="/commissions/new">
-          <button className="bg-black text-white px-6 py-3 rounded-xl text-sm font-medium hover:bg-gray-800 transition">
-            Discover Artists
-          </button>
-        </Link>
-        <Link href="/login">
-          <button className="border border-gray-300 px-6 py-3 rounded-xl text-sm font-medium hover:bg-gray-50 transition">
-            Join as an Artist
-          </button>
-        </Link>
+          {/* Search Bar */}
+          <div className="bg-[#eee] rounded-[50px] h-[71px] flex items-center gap-3 max-w-[801px]">
+            <div className="w-10 h-10 flex items-center justify-center">
+              <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              placeholder="Search by artist or service"
+              className="flex-1 bg-transparent text-[24px] font-semibold text-[#939393] outline-none placeholder:text-[#939393]"
+            />
+          </div>
+
+          {/* Category Tags */}
+          <div className="flex gap-6 flex-wrap">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className="bg-[#2b2b2b] text-[#eee] px-8 py-4 rounded-[27px] text-[24px] font-semibold hover:bg-[#3b3b3b] transition"
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

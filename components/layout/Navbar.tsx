@@ -1,61 +1,42 @@
-function NavLinks() {
-  return (
-    <div className="content-stretch flex h-[20px] items-center justify-between leading-[0] relative shrink-0 text-center text-nowrap w-[876px]" data-name="nav links">
-      <div className="flex flex-col font-['Outfit:ExtraBold',sans-serif] font-extrabold justify-center relative shrink-0 text-[32px] text-white">
-        <p className="leading-[0.801]">SketchQueue</p>
-      </div>
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center relative shrink-0 text-[24px] text-black">
-        <p className="leading-[0.801]">Commissions</p>
-      </div>
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center relative shrink-0 text-[24px] text-black">
-        <p className="leading-[0.801]">Artists</p>
-      </div>
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center relative shrink-0 text-[24px] text-black">
-        <p className="leading-[0.801]">Marketplace</p>
-      </div>
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center relative shrink-0 text-[24px] text-black">
-        <p className="leading-[0.801]">Community</p>
-      </div>
-    </div>
-  );
-}
+import Link from 'next/link';
 
-function Login() {
-  return (
-    <div className="bg-[#2b2b2b] content-stretch flex items-center justify-center px-[30px] py-[15px] relative rounded-[27px] shrink-0" data-name="login">
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[#eee] text-[24px] text-center text-nowrap">
-        <p className="leading-[0.801]">Login</p>
-      </div>
-    </div>
-  );
-}
-
-function Signup() {
-  return (
-    <div className="bg-gradient-to-r content-stretch flex from-[#8fbfff] items-center justify-center px-[30px] py-[15px] relative rounded-[27px] shrink-0 to-[#ff9ea9] via-[#e78eff] via-[46.635%]" data-name="signup">
-      <div className="flex flex-col font-['Outfit:SemiBold',sans-serif] font-semibold justify-center leading-[0] relative shrink-0 text-[#2b2b2b] text-[24px] text-center text-nowrap">
-        <p className="leading-[0.801]">Sign Up</p>
-      </div>
-    </div>
-  );
-}
-
-
-function Frame5() {
-  return (
-    <div className="content-stretch flex gap-[23px] items-center relative shrink-0">
-      <Login />
-      <Signup />
-    </div>
-  );
-}
-
+const navLinks = ['Commissions', 'Artists', 'Marketplace', 'Community'];
 
 export default function Navbar() {
   return (
-    <div className="content-stretch flex items-center justify-between px-[30px] py-[20px] relative shrink-0 w-[1439px]" data-name="nav">
-      <NavLinks />
-      <Frame5 />
-    </div>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white flex items-center justify-between px-8 py-5 w-full h-[10vh]">
+      {/* Logo + Nav Links */}
+      <div className="flex items-center gap-12">
+        <Link href="/" className="font-extrabold text-[32px] text-white [-webkit-text-stroke:10px_black] [paint-order:stroke_fill]">
+          SketchQueue
+        </Link>
+        
+        <div className="flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link}
+              href={`/${link.toLowerCase()}`}
+              className="text-[24px] font-semibold text-black hover:text-gray-600 transition"
+            >
+              {link}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Auth Buttons */}
+      <div className="flex items-center gap-6">
+        <Link href="/login">
+          <button className="bg-[#2b2b2b] text-[#eee] px-8 py-2.5 rounded-[27px] text-[24px] font-semibold hover:bg-[#3b3b3b] transition">
+            Login
+          </button>
+        </Link>
+        <Link href="/signup">
+          <button className="bg-gradient-to-r from-[#8fbfff] via-[#e78eff] to-[#ff9ea9] text-[#2b2b2b] px-8 py-2.5 rounded-[27px] text-[24px] font-semibold hover:opacity-90 transition">
+            Sign Up
+          </button>
+        </Link>
+      </div>
+    </nav>
   );
 }
